@@ -1,7 +1,7 @@
 import pandas as pd
 import seaborn as sb
 import matplotlib.pyplot as plt
-df=pd.read_csv("Coffe_sales.csv")
+df=pd.read_csv("dataset/Coffe_sales.csv")
 print(df.head(10))
 """
    hour_of_day cash_type  money          coffee_name Time_of_Day Weekday Month_name  Weekdaysort  Monthsort        Date             Time
@@ -336,7 +336,7 @@ sb.barplot(x=coffee_sales.index, y=coffee_sales.values)
 plt.title("Total Revenue by Coffee Type")
 plt.xlabel("Coffee Type")
 plt.ylabel("Total Revenue")
-
+plt.savefig("images/coffee_revenue.png")
 plt.show()
 
 hourly = maindf.groupby("hour_of_day")["money"].sum()
@@ -346,6 +346,7 @@ sb.lineplot(x=hourly.index, y=hourly.values)
 plt.title("Total Revenue by Hour")
 plt.xlabel("Hour of Day")
 plt.ylabel("Total Revenue")
+plt.savefig("images/hourly_revenue.png")
 plt.show()
 
 monthly = maindf.groupby("Monthsort")["money"].sum()
@@ -355,5 +356,6 @@ sb.barplot(x=monthly.index, y=monthly.values)
 plt.title("Total Revenue by Month")
 plt.xlabel("Months")
 plt.ylabel("Total Revenue")
+plt.savefig("images/monthly_revenue.png")
 plt.show()
 
