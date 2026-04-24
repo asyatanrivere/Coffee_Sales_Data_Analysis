@@ -336,26 +336,32 @@ sb.barplot(x=coffee_sales.index, y=coffee_sales.values)
 plt.title("Total Revenue by Coffee Type")
 plt.xlabel("Coffee Type")
 plt.ylabel("Total Revenue")
-plt.savefig("images/coffee_revenue.png")
+plt.xticks(rotation=45)
+
+plt.savefig("images/coffee_revenue.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 hourly = maindf.groupby("hour_of_day")["money"].sum()
 
+plt.figure(figsize=(10,5)) 
 sb.lineplot(x=hourly.index, y=hourly.values)
 
 plt.title("Total Revenue by Hour")
 plt.xlabel("Hour of Day")
 plt.ylabel("Total Revenue")
-plt.savefig("images/hourly_revenue.png")
+
+plt.savefig("images/hourly_revenue.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 monthly = maindf.groupby("Monthsort")["money"].sum()
 
+plt.figure(figsize=(10,5))  
 sb.barplot(x=monthly.index, y=monthly.values)
 
 plt.title("Total Revenue by Month")
 plt.xlabel("Months")
 plt.ylabel("Total Revenue")
-plt.savefig("images/monthly_revenue.png")
+
+plt.savefig("images/monthly_revenue.png", dpi=300, bbox_inches="tight")
 plt.show()
 
